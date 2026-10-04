@@ -29,6 +29,7 @@ class RecordRepository(private val context: Context, private val services: Servi
 
     /** Stores the record locally whatever the consent; only shared records enter the sync queue. */
     suspend fun save(session: CheckSession, result: FusionResult, shareRecord: Boolean, sharePhotos: Boolean) {
+        require(!session.isExample) { "Example checks are never stored" }
         val record = build(session, result, shareRecord, shareRecord && sharePhotos)
         val accept = services.weights.config.photoAcceptProb
         withContext(Dispatchers.IO) {
@@ -45,7 +46,7 @@ class RecordRepository(private val context: Context, private val services: Servi
                 ),
             )
             dao.insertPhotos(session.photos.map { p ->
-                PhotoEntity(p.photoId, session.recordId, p.file.path, p.treeIndex, p.leafClass?.id, p.prob, isAccepted(p.leafClass, p.prob, accept))
+                PhotoEntity(p.photoId, session.recordId, p.file?.path.orEmpty(), p.treeIndex, p.leafClass?.id, p.prob, isAccepted(p.leafClass, p.prob, accept))
             })
         }
         session.saved = true

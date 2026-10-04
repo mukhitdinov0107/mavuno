@@ -100,9 +100,11 @@ abstract class MavunoDb : RoomDatabase() {
 
         fun open(context: Context): MavunoDb {
             System.loadLibrary("sqlcipher")
-            val passphrase = DbKey.passphrase(context)
+            // The key is 32 random bytes, so pass it as a raw key ("x'…'") and skip SQLCipher's
+            // PBKDF2 stretching, which exists for human passwords and costs ~10 s on a low-end phone.
+            val rawKey = "x'" + DbKey.passphrase(context).joinToString("") { "%02x".format(it) } + "'"
             return Room.databaseBuilder(context, MavunoDb::class.java, NAME)
-                .openHelperFactory(SupportOpenHelperFactory(passphrase))
+                .openHelperFactory(SupportOpenHelperFactory(rawKey.toByteArray()))
                 .build()
         }
 

@@ -132,7 +132,6 @@
   "home.history": "Ukaguzi uliopita",
   "home.settings": "Mipangilio",
   "photos.instruction": "Piga picha za angalau majani 5 kutoka angalau miti 3 tofauti. Jaza fremu kwa jani moja.",
-  "photos.progress": "Majani {leaves} kutoka miti {trees}",
   "photos.tree": "Mti {n}",
   "photos.take": "Piga picha",
   "photos.next_tree": "Mti unaofuata",
@@ -172,5 +171,16 @@
   "settings.delete_confirm": "Hii itafuta ukaguzi wote, picha na ripoti zinazosubiri kutumwa kwenye simu hii. Haiwezi kurudishwa.",
   "settings.delete_yes": "Futa kila kitu",
   "common.cancel": "Ghairi",
-  "common.done": "Maliza"
+  "common.done": "Maliza",
+  "home.tagline": "Piga picha za majani machache na ujibu maswali 8 ujue kwa nini mavuno yalishuka.",
+  "home.try_example": "Tazama mfano wa ukaguzi",
+  "home.last_check": "Ukaguzi wa mwisho",
+  "example.badge": "Mfano",
+  "example.notice": "Picha na majibu ya kubuni, kuonyesha jinsi jibu linavyoonekana. Hakuna kinachohifadhiwa wala kutumwa.",
+  "example.start_real": "Angalia shamba langu",
+  "result.why": "Kwa nini",
+  "result.also_check": "Pia inafaa kuangalia",
+  "photos.leaves_count": "Majani {n} kati ya {total}",
+  "a11y.speak": "Sikiliza",
+  "card.title": "Nini cha kufanya"
 }

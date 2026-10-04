@@ -132,7 +132,6 @@
   "home.history": "Past checks",
   "home.settings": "Settings",
   "photos.instruction": "Photograph at least 5 leaves from at least 3 different trees. Fill the frame with one leaf.",
-  "photos.progress": "{leaves} leaves from {trees} trees",
   "photos.tree": "Tree {n}",
   "photos.take": "Take photo",
   "photos.next_tree": "Next tree",
@@ -172,5 +171,16 @@
   "settings.delete_confirm": "This deletes all checks, photos and reports waiting to send from this phone. It cannot be undone.",
   "settings.delete_yes": "Delete everything",
   "common.cancel": "Cancel",
-  "common.done": "Done"
+  "common.done": "Done",
+  "home.tagline": "Photograph a few leaves and answer 8 questions to find out why the harvest dropped.",
+  "home.try_example": "See an example check",
+  "home.last_check": "Last check",
+  "example.badge": "Example",
+  "example.notice": "Made-up photos and answers, to show what a result looks like. Nothing is saved or sent.",
+  "example.start_real": "Check my farm",
+  "result.why": "Why",
+  "result.also_check": "Also worth checking",
+  "photos.leaves_count": "{n} of {total} leaves",
+  "a11y.speak": "Play aloud",
+  "card.title": "What to do"
 }

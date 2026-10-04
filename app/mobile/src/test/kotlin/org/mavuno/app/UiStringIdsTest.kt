@@ -16,7 +16,7 @@ class UiStringIdsTest {
 
     @Test
     fun `every literal UI string ID exists in every language pack`() {
-        val pattern = Regex("""(?:\bt|SpokenPrompt)\(\s*"([a-z_]+(?:\.[a-z0-9_]+)+)"""")
+        val pattern = Regex("""(?:\bt|Prompt|SpeakButton)\(\s*"([a-z_]+(?:\.[a-z0-9_]+)+)"""")
         val ifPattern = Regex("""if \([^)]*\) "([a-z_]+\.[a-z0-9_.]+)" else "([a-z_]+\.[a-z0-9_.]+)"""")
         val ids = sources.walk().filter { it.extension == "kt" }.flatMap { f ->
             val text = f.readText()

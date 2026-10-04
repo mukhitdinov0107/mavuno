@@ -14,17 +14,23 @@ import org.mavuno.fusion.LeafClass
 import org.mavuno.fusion.PhotoObservation
 import java.io.File
 
-/** A photo that passed the quality gate. [leafClass] is null when no classifier is installed. */
+/**
+ * A photo that passed the quality gate. [leafClass] is null when no classifier is installed.
+ * [file] is null only for the built-in example check, which has no real photos.
+ */
 data class CapturedPhoto(
     val photoId: String,
-    val file: File,
+    val file: File?,
     val treeIndex: Int,
     val leafClass: LeafClass?,
     val prob: Double?,
 )
 
-/** State of one "check the farm" walk, from photos to the consent screen. */
-class CheckSession {
+/**
+ * State of one "check the farm" walk, from photos to the consent screen.
+ * An [isExample] session is the labelled demo: it is never saved or sent.
+ */
+class CheckSession(val isExample: Boolean = false) {
     val recordId: String = Prefs.newId()
     val startedAt: Long = System.currentTimeMillis()
 
