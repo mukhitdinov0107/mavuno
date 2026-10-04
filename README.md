@@ -7,6 +7,15 @@
 - **Android app (APK, 13 MB):** [Releases](https://github.com/mukhitdinov0107/mavuno/releases/latest)
 - **Web demo, runs the same model and scoring in your browser:** https://mukhitdinov0107.github.io/mavuno/
 - **Language:** Kiswahili (default) and English, switchable at any time
+- **One-page report:** [docs/Solo Builder_OnePager.pdf](docs/Solo%20Builder_OnePager.pdf) · **Videos:** demo, tech walkthrough and team intro are in the [release](https://github.com/mukhitdinov0107/mavuno/releases/latest)
+
+## Summary
+
+Kenya's coffee yields fell from 973 to 474 kg per hectare between 1963/64 and 2021/22, across more than 800,000 smallholders, while each extension officer serves about 1,380 farmers against FAO's recommended 400 (Kenya Ministry of Agriculture and Livestock Development, *Coffee Development and Marketing Strategy 2024–2029*; *Agriculture Extension Manual*, 2025). A farmer like Noor sees her harvest drop and may wait months for anyone to tell her why.
+
+Mavuno is an Android app that answers that question **offline, in Swahili, on a phone the family already has.** Noor's daughter photographs five coffee leaves from three trees; a 1.1 MB leaf model on the phone reads each one. Noor answers eight questions by tapping pictures (tree age, pruning, fertilizer, shade, berries, harvest), so reading isn't required. A transparent scoring table weighs the leaves, the answers and the plot data, and shows the likely cause, the two clues behind it, and a vetted advice card with safe first steps and when to call the officer. When the evidence is weak it says so: *"Sina uhakika, muulize afisa ugani"* ("I'm not sure, ask the extension officer"). With her consent, each check becomes an encrypted report that waits on the phone and goes to her cooperative when there is signal.
+
+What works today: the complete offline check flow in Swahili and English; a leaf model that is 97.5% accurate on Kenyan leaf crops and 88% on the confident photos of whole leaves from another country; abstain rules covered by tests; consent, encryption and delete-all; and a browser demo running the same model. Everything the app says comes from a fixed, reviewable list, so it can't make anything up.
 
 ## How it works
 
