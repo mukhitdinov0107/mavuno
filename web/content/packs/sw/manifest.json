@@ -1,0 +1,9 @@
+{
+  "pack_id": "coffee-sw",
+  "language": "sw",
+  "language_name": "Kiswahili",
+  "crop": "coffee_arabica",
+  "version": "0.1.0",
+  "text_review": "needs_native_speaker_review",
+  "audio": "not_generated"
+}

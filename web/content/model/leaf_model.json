@@ -1,0 +1,25 @@
+{
+  "version": "leaf-v1",
+  "labels": [
+    "healthy",
+    "rust",
+    "leaf_miner",
+    "phoma",
+    "cercospora",
+    "other"
+  ],
+  "input_size": 224,
+  "input_range": [
+    0,
+    255
+  ],
+  "output": "logits",
+  "temperature": 1.1,
+  "accept_threshold": 0.7,
+  "trained_on": [
+    "JMuBEN (CC BY 4.0)",
+    "JMuBEN2 (CC BY 4.0)",
+    "BRACOL (CC BY 4.0)",
+    "PlantDoc (CC BY 4.0)"
+  ]
+}

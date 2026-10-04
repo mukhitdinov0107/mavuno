@@ -5,7 +5,7 @@
 *Mavuno* is Swahili for "harvest". Noor's coffee yields have slipped and she doesn't know why; the extension officer visits twice a year. Mavuno is an Android app that works with **no internet**. She photographs a few coffee leaves and answers 8 picture questions. The app tells her the likely cause, why it thinks so, and safe first steps. When it isn't sure, it says so and sends her to the extension officer. Each check becomes a report that waits on the phone and goes to her cooperative once there is signal, with her consent.
 
 - **Android app (APK, 13 MB):** [Releases](https://github.com/mukhitdinov0107/mavuno/releases/latest)
-- **Web demo, runs the same model in your browser:** see the repo's GitHub Pages link
+- **Web demo, runs the same model and scoring in your browser:** https://mukhitdinov0107.github.io/mavuno/
 - **Language:** Kiswahili (default) and English, switchable at any time
 
 ## How it works

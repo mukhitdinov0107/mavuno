@@ -1,0 +1,68 @@
+{
+  "leaf_rust": {
+    "what": "A fungus that makes orange powdery spots under the leaves. Leaves fall early and the tree bears less next season.",
+    "check": ["Turn leaves over and look for orange powder on the underside.", "Check whether many leaves have already fallen."],
+    "first_steps": ["Prune to open the canopy so leaves dry faster.", "Remove fallen and badly infected leaves from the plot.", "Keep trees well fed with manure or compost."],
+    "contact_officer": "Ask the extension officer before using any spray, and about rust-resistant varieties."
+  },
+  "cercospora_nutrient_stress": {
+    "what": "Brown spots with a pale centre on leaves and berries. It is worse on trees that are hungry or in full sun.",
+    "check": ["Look for round brown spots with a light centre.", "Check whether the worst trees are the ones with no shade."],
+    "first_steps": ["Add manure or compost around the trees.", "Mulch to keep soil moist.", "Consider planting shade trees in open areas."],
+    "contact_officer": "Ask the extension officer about a soil test and about feeding the trees."
+  },
+  "leaf_miner": {
+    "what": "Small caterpillars that tunnel inside the leaf and leave brown blotches. Worse in dry seasons.",
+    "check": ["Hold a leaf to the light and look for brown blotches that peel like paper.", "Check whether damage is mostly on the upper part of the tree."],
+    "first_steps": ["Keep some shade over the trees.", "Mulch to reduce drought stress.", "Encourage natural enemies by avoiding unnecessary sprays."],
+    "contact_officer": "Tell the extension officer if more than a few leaves on each tree are damaged."
+  },
+  "phoma": {
+    "what": "A fungus that blackens young leaves and shoot tips in cold, wet and windy weather, mostly at higher altitudes.",
+    "check": ["Look for black, dying tips on new shoots.", "Check whether damage is worst on the windy side of the plot."],
+    "first_steps": ["Plant or keep windbreaks.", "Cut out and remove dead shoot tips.", "Avoid pruning just before the cold wet season."],
+    "contact_officer": "Ask the extension officer about protecting young shoots in the cold season."
+  },
+  "berry_disease_suspected": {
+    "what": "Coffee berry disease makes dark sunken spots on green berries, which then rot or fall. The app cannot see berries, so this is only suspected.",
+    "check": ["Pick a few berries with dark spots.", "Note how many trees are affected."],
+    "first_steps": ["Remove and bury infected berries away from the trees.", "Prune to let air move through the canopy."],
+    "contact_officer": "Take a sample of spotted berries to the extension officer to confirm."
+  },
+  "berry_borer_suspected": {
+    "what": "A small beetle that bores a round hole in the berry and damages the bean. The app cannot see berries, so this is only suspected.",
+    "check": ["Look for a small round hole at the tip of the berry.", "Open a berry and look for tunnels or small white grubs."],
+    "first_steps": ["Pick all ripe and overripe berries at harvest.", "Collect and destroy berries that have fallen to the ground."],
+    "contact_officer": "Take a sample of holed berries to the extension officer to confirm."
+  },
+  "drought_stress": {
+    "what": "Too little rain during flowering or while berries grow means fewer flowers set and berries stay small.",
+    "check": ["Look for wilting in the afternoon.", "Check whether flowers dried before setting berries."],
+    "first_steps": ["Mulch around the trees to keep soil moist.", "Keep or plant shade trees.", "Dig small basins or trenches to catch rain."],
+    "contact_officer": "Ask the extension officer about water harvesting for your slope."
+  },
+  "excess_rain": {
+    "what": "Heavy rain during flowering can wash out flowers and favour fungal diseases.",
+    "check": ["Check whether flowers fell before setting berries.", "Look for water standing or soil washing away."],
+    "first_steps": ["Dig drainage channels along the slope.", "Prune to let leaves dry faster.", "Watch closely for berry and leaf diseases."],
+    "contact_officer": "Tell the extension officer if you also see spots on berries or leaves."
+  },
+  "soil_acidity": {
+    "what": "Very acidic soil makes it hard for coffee roots to take up nutrients, even when you add fertilizer. This comes from soil maps, not a test of your plot.",
+    "check": ["Ask whether your soil has ever been tested.", "Check whether yellow leaves appear even after feeding."],
+    "first_steps": ["Get a soil test before changing anything.", "Add well-rotted manure or compost."],
+    "contact_officer": "Ask the extension officer about a soil test and whether liming is needed."
+  },
+  "nutrient_deficiency": {
+    "what": "Trees that are not fed enough bear less and are weaker against disease.",
+    "check": ["Look for pale or yellow leaves.", "Think about when the trees were last fed."],
+    "first_steps": ["Add manure or compost around each tree.", "Mulch with prunings and crop residue.", "Plan feeding before the rains."],
+    "contact_officer": "Ask the extension officer about a soil test and a feeding plan."
+  },
+  "old_unpruned_trees": {
+    "what": "Old or crowded trees bear fewer berries on less new wood. Pruning renews bearing branches.",
+    "check": ["Count how many main stems each tree has.", "Look for long bare branches that bear only at the tips."],
+    "first_steps": ["Remove dead, crossing and low branches.", "Plan to renew the oldest trees a few at a time."],
+    "contact_officer": "Ask the extension officer to show the pruning method for your variety."
+  }
+}
