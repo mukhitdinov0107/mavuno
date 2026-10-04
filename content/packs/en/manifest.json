@@ -1,0 +1,9 @@
+{
+  "pack_id": "coffee-en",
+  "language": "en",
+  "language_name": "English",
+  "crop": "coffee_arabica",
+  "version": "0.1.0",
+  "text_review": "draft",
+  "audio": "not_generated"
+}

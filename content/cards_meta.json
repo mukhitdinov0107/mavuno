@@ -1,0 +1,137 @@
+{
+  "_note": "Language-independent card metadata. Sources are suggestions to look up and cite properly; no card has been reviewed. The app shows 'awaiting agronomist review' while reviewed_by is null.",
+  "cards": {
+    "leaf_rust": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "cercospora_nutrient_stress": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "leaf_miner": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "phoma": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "berry_disease_suspected": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "berry_borer_suspected": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "drought_stress": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "excess_rain": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "soil_acidity": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "nutrient_deficiency": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    },
+    "old_unpruned_trees": {
+      "source": {
+        "citation": null,
+        "look_in": [
+          "KALRO Coffee Research Institute (Kenya) extension material",
+          "CABI PlantwisePlus Knowledge Bank"
+        ],
+        "status": "needs_citation"
+      },
+      "reviewed_by": null,
+      "reviewed_on": null
+    }
+  }
+}

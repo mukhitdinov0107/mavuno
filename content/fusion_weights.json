@@ -1,0 +1,161 @@
+{
+  "version": "fusion-v0.1",
+  "reviewed_by": null,
+  "_note": "Expert-set PLACEHOLDER weights, not fitted to outcome data. Positive = evidence for the cause, negative = evidence against. Unknown features contribute zero. Must be reviewed by an agronomist before real use.",
+  "config": {
+    "photo_accept_prob": 0.70,
+    "seen_min_count": 2,
+    "seen_min_share": 0.30,
+    "healthy_mostly_share": 0.70,
+    "min_accepted_photos": 3,
+    "min_known_features": 5,
+    "abstain_top_prob": 0.40,
+    "conflict_margin": 0.10,
+    "output_min_prob": 0.25,
+    "max_causes": 3,
+    "label_likely": 0.60,
+    "label_possible": 0.40,
+    "rain_deficit_pct": 70,
+    "rain_excess_pct": 140,
+    "soil_acid_ph": 5.0,
+    "soil_low_n_g_per_kg": 1.0,
+    "soil_low_k_mg_per_kg": 100.0
+  },
+  "causes": {
+    "leaf_rust": {
+      "prior": 0.0,
+      "weights": {
+        "photo.rust=seen": 3.0,
+        "photo.rust=not_seen": -1.0,
+        "photo.healthy=mostly": -0.5,
+        "q_fertilizer=no": 0.4,
+        "q_fertilizer=little": 0.2,
+        "q_pruning=never": 0.4,
+        "q_pruning=longer": 0.3,
+        "rain_berry=excess": 0.4
+      }
+    },
+    "cercospora_nutrient_stress": {
+      "prior": 0.0,
+      "weights": {
+        "photo.cercospora=seen": 3.0,
+        "photo.cercospora=not_seen": -1.0,
+        "photo.healthy=mostly": -0.5,
+        "q_fertilizer=no": 0.8,
+        "q_fertilizer=little": 0.4,
+        "q_shade=none": 0.8,
+        "q_shade=heavy": -0.3,
+        "soil_n=low": 0.5,
+        "rain_flowering=deficit": 0.3
+      }
+    },
+    "leaf_miner": {
+      "prior": 0.0,
+      "weights": {
+        "photo.leaf_miner=seen": 3.0,
+        "photo.leaf_miner=not_seen": -1.0,
+        "photo.healthy=mostly": -0.5,
+        "q_shade=none": 0.3,
+        "rain_flowering=deficit": 0.4,
+        "rain_berry=deficit": 0.4
+      }
+    },
+    "phoma": {
+      "prior": 0.0,
+      "weights": {
+        "photo.phoma=seen": 3.0,
+        "photo.phoma=not_seen": -1.0,
+        "photo.healthy=mostly": -0.5,
+        "rain_flowering=excess": 0.5,
+        "rain_berry=excess": 0.3,
+        "q_shade=none": 0.2
+      }
+    },
+    "berry_disease_suspected": {
+      "prior": 0.0,
+      "weights": {
+        "q_berry_spots=many": 2.6,
+        "q_berry_spots=few": 1.2,
+        "q_berry_spots=none": -1.2,
+        "q_when_noticed=berry_growth": 0.5,
+        "rain_flowering=excess": 0.5,
+        "rain_berry=excess": 0.6,
+        "q_yield_change=half_or_less": 0.3
+      }
+    },
+    "berry_borer_suspected": {
+      "prior": 0.0,
+      "weights": {
+        "q_berry_holes=many": 2.8,
+        "q_berry_holes=few": 1.3,
+        "q_berry_holes=none": -1.2,
+        "q_when_noticed=harvest": 0.5,
+        "q_shade=heavy": 0.2
+      }
+    },
+    "drought_stress": {
+      "prior": 0.0,
+      "weights": {
+        "rain_flowering=deficit": 1.8,
+        "rain_berry=deficit": 1.4,
+        "rain_flowering=normal": -0.8,
+        "rain_berry=normal": -0.5,
+        "rain_flowering=excess": -1.0,
+        "rain_berry=excess": -1.0,
+        "q_shade=none": 0.4,
+        "q_when_noticed=flowering": 0.3,
+        "photo.healthy=mostly": 0.3,
+        "q_yield_change=half_or_less": 0.2
+      }
+    },
+    "excess_rain": {
+      "prior": 0.0,
+      "weights": {
+        "rain_flowering=excess": 1.6,
+        "rain_berry=excess": 0.9,
+        "rain_flowering=normal": -0.8,
+        "rain_berry=normal": -0.4,
+        "rain_flowering=deficit": -1.0,
+        "rain_berry=deficit": -1.0,
+        "q_when_noticed=flowering": 0.3,
+        "photo.healthy=mostly": 0.3
+      }
+    },
+    "soil_acidity": {
+      "prior": 0.0,
+      "weights": {
+        "soil_ph=acid": 1.8,
+        "soil_ph=ok": -1.0,
+        "photo.healthy=mostly": 0.2,
+        "q_fertilizer=yes": 0.2
+      }
+    },
+    "nutrient_deficiency": {
+      "prior": 0.0,
+      "weights": {
+        "q_fertilizer=no": 1.2,
+        "q_fertilizer=little": 0.6,
+        "q_fertilizer=yes": -0.8,
+        "soil_n=low": 1.0,
+        "soil_n=ok": -0.3,
+        "soil_k=low": 1.0,
+        "soil_k=ok": -0.3,
+        "soil_ph=acid": 0.4,
+        "photo.healthy=mostly": 0.3
+      }
+    },
+    "old_unpruned_trees": {
+      "prior": 0.0,
+      "weights": {
+        "q_tree_age=gt30": 1.4,
+        "q_tree_age=15_30": 0.5,
+        "q_tree_age=lt5": -0.8,
+        "q_pruning=never": 1.4,
+        "q_pruning=longer": 0.8,
+        "q_pruning=this_year": -1.0,
+        "photo.healthy=mostly": 0.3,
+        "q_yield_change=somewhat_less": 0.2
+      }
+    }
+  }
+}

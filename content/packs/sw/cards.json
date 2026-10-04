@@ -1,0 +1,68 @@
+{
+  "leaf_rust": {
+    "what": "Kuvu inayofanya madoa ya unga wa rangi ya machungwa chini ya majani. Majani hupukutika mapema na mti huzaa kidogo msimu ujao.",
+    "check": ["Geuza majani uangalie unga wa rangi ya machungwa upande wa chini.", "Angalia kama majani mengi yameshapukutika."],
+    "first_steps": ["Pogoa ili kufungua miti majani yakauke haraka.", "Ondoa majani yaliyoanguka na yaliyoathirika sana shambani.", "Lisha miti vizuri kwa samadi au mboji."],
+    "contact_officer": "Muulize afisa ugani kabla ya kutumia dawa yoyote, na kuhusu aina za kahawa zinazostahimili kutu."
+  },
+  "cercospora_nutrient_stress": {
+    "what": "Madoa ya kahawia yenye katikati iliyofifia kwenye majani na buni. Huzidi kwenye miti yenye njaa au iliyo juani kabisa.",
+    "check": ["Tafuta madoa ya mviringo ya kahawia yenye katikati nyeupe.", "Angalia kama miti iliyoathirika zaidi ni ile isiyo na kivuli."],
+    "first_steps": ["Weka samadi au mboji kuzunguka miti.", "Tandaza matandazo kuweka unyevu udongoni.", "Fikiria kupanda miti ya kivuli sehemu zilizo wazi."],
+    "contact_officer": "Muulize afisa ugani kuhusu kupima udongo na kulisha miti."
+  },
+  "leaf_miner": {
+    "what": "Viwavi wadogo wanaochimba ndani ya jani na kuacha mabaka ya kahawia. Huzidi wakati wa kiangazi.",
+    "check": ["Shika jani dhidi ya mwanga uangalie mabaka ya kahawia yanayobanduka kama karatasi.", "Angalia kama uharibifu uko zaidi upande wa juu wa mti."],
+    "first_steps": ["Acha kivuli kiasi juu ya miti.", "Tandaza matandazo kupunguza ukame.", "Linda wadudu rafiki kwa kuepuka dawa zisizo za lazima."],
+    "contact_officer": "Mjulishe afisa ugani kama zaidi ya majani machache kwenye kila mti yameharibika."
+  },
+  "phoma": {
+    "what": "Kuvu inayofanya majani machanga na ncha za machipukizi kuwa meusi wakati wa baridi, mvua na upepo, hasa sehemu za miinuko.",
+    "check": ["Tafuta ncha nyeusi zinazokufa kwenye machipukizi mapya.", "Angalia kama uharibifu ni mkubwa upande wa upepo."],
+    "first_steps": ["Panda au tunza vizuizi vya upepo.", "Kata na uondoe ncha zilizokufa.", "Epuka kupogoa kabla ya msimu wa baridi na mvua."],
+    "contact_officer": "Muulize afisa ugani jinsi ya kulinda machipukizi machanga wakati wa baridi."
+  },
+  "berry_disease_suspected": {
+    "what": "Ugonjwa wa buni za kahawa hufanya madoa meusi yaliyobonyea kwenye buni mbichi, kisha huoza au kuanguka. Programu haiwezi kuona buni, kwa hiyo hili linashukiwa tu.",
+    "check": ["Chuma buni chache zenye madoa meusi.", "Kumbuka ni miti mingapi imeathirika."],
+    "first_steps": ["Ondoa buni zilizoathirika uzizike mbali na miti.", "Pogoa ili hewa ipite kati ya matawi."],
+    "contact_officer": "Mpelekee afisa ugani sampuli ya buni zenye madoa ili kuthibitisha."
+  },
+  "berry_borer_suspected": {
+    "what": "Mende mdogo anayetoboa tundu la mviringo kwenye buni na kuharibu punje. Programu haiwezi kuona buni, kwa hiyo hili linashukiwa tu.",
+    "check": ["Tafuta tundu dogo la mviringo kwenye ncha ya buni.", "Pasua buni uangalie njia au funza weupe wadogo."],
+    "first_steps": ["Chuma buni zote zilizoiva na zilizoiva kupita kiasi wakati wa mavuno.", "Okota na uharibu buni zilizoanguka chini."],
+    "contact_officer": "Mpelekee afisa ugani sampuli ya buni zenye matundu ili kuthibitisha."
+  },
+  "drought_stress": {
+    "what": "Mvua kidogo wakati wa maua au buni zinapokua inamaanisha maua machache yanazaa na buni hubaki ndogo.",
+    "check": ["Angalia kama majani hunyauka mchana.", "Angalia kama maua yalikauka kabla ya kuzaa buni."],
+    "first_steps": ["Tandaza matandazo kuzunguka miti kuweka unyevu.", "Tunza au panda miti ya kivuli.", "Chimba vishimo au mitaro midogo kukinga maji ya mvua."],
+    "contact_officer": "Muulize afisa ugani kuhusu uvunaji wa maji kwa mteremko wa shamba lako."
+  },
+  "excess_rain": {
+    "what": "Mvua nyingi wakati wa maua inaweza kuangusha maua na kuchochea magonjwa ya kuvu.",
+    "check": ["Angalia kama maua yalianguka kabla ya kuzaa buni.", "Tafuta maji yaliyotuama au udongo unaosombwa."],
+    "first_steps": ["Chimba mitaro ya kupitisha maji kwenye mteremko.", "Pogoa ili majani yakauke haraka.", "Fuatilia kwa makini magonjwa ya buni na majani."],
+    "contact_officer": "Mjulishe afisa ugani ukiona pia madoa kwenye buni au majani."
+  },
+  "soil_acidity": {
+    "what": "Udongo wenye asidi nyingi hufanya mizizi ya kahawa ishindwe kuchukua virutubisho, hata ukiweka mbolea. Hii inatoka kwenye ramani za udongo, si kipimo cha shamba lako.",
+    "check": ["Uliza kama udongo wako umewahi kupimwa.", "Angalia kama majani ya njano yanaonekana hata baada ya kulisha."],
+    "first_steps": ["Pima udongo kabla ya kubadilisha chochote.", "Weka samadi au mboji iliyooza vizuri."],
+    "contact_officer": "Muulize afisa ugani kuhusu kupima udongo na kama chokaa inahitajika."
+  },
+  "nutrient_deficiency": {
+    "what": "Miti isiyolishwa vya kutosha huzaa kidogo na hushindwa kustahimili magonjwa.",
+    "check": ["Tafuta majani yaliyofifia au ya njano.", "Fikiria miti ililishwa lini mara ya mwisho."],
+    "first_steps": ["Weka samadi au mboji kuzunguka kila mti.", "Tandaza matandazo ya matawi yaliyopogolewa na mabaki ya mazao.", "Panga kulisha miti kabla ya mvua."],
+    "contact_officer": "Muulize afisa ugani kuhusu kupima udongo na mpango wa kulisha miti."
+  },
+  "old_unpruned_trees": {
+    "what": "Miti mizee au iliyosongamana huzaa buni chache kwa sababu ina matawi mapya machache. Kupogoa hufufua matawi yanayozaa.",
+    "check": ["Hesabu kila mti una mashina makuu mangapi.", "Tafuta matawi marefu matupu yanayozaa kwenye ncha tu."],
+    "first_steps": ["Ondoa matawi yaliyokufa, yanayopishana na ya chini.", "Panga kufufua miti mizee zaidi michache kwa wakati mmoja."],
+    "contact_officer": "Muulize afisa ugani akuonyeshe njia ya kupogoa aina yako ya kahawa."
+  }
+}

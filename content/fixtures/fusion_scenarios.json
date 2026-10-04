@@ -1,0 +1,165 @@
+{
+  "_note": "Hand-written scenarios for the fusion engine (PRD 11). photos are [class, calibrated_prob, count]. Missing interview answers and null context values are unknown. expect.top is the first cause shown; includes / excludes check other shown causes; abstain_reasons must all be present.",
+  "scenarios": [
+    {
+      "id": "S01_rust_clear",
+      "description": "Rust on 4 of 6 leaves, no fertilizer, pruning overdue, normal rain.",
+      "photos": [["rust", 0.91, 4], ["healthy", 0.88, 2]],
+      "interview": {"q_tree_age": "15_30", "q_pruning": "longer", "q_fertilizer": "no", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "berry_growth"},
+      "context": {"rain_flowering_pct": 95, "rain_berry_pct": 110, "soil_ph": 5.6, "soil_n": 1.4, "soil_k": 180, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "leaf_rust"}
+    },
+    {
+      "id": "S02_cercospora_unshaded_unfed",
+      "description": "Brown eye spot on most leaves, full sun, no fertilizer, low soil N.",
+      "photos": [["cercospora", 0.86, 4], ["healthy", 0.9, 2]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "last_year", "q_fertilizer": "no", "q_shade": "none", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "berry_growth"},
+      "context": {"rain_flowering_pct": 90, "rain_berry_pct": 95, "soil_ph": 5.4, "soil_n": 0.7, "soil_k": 150, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "cercospora_nutrient_stress"}
+    },
+    {
+      "id": "S03_leaf_miner_dry_season",
+      "description": "Leaf miner mines on 4 of 6 leaves in a dry season; drought should also be listed.",
+      "photos": [["leaf_miner", 0.89, 4], ["healthy", 0.85, 2]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "last_year", "q_fertilizer": "yes", "q_shade": "none", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "berry_growth"},
+      "context": {"rain_flowering_pct": 60, "rain_berry_pct": 65, "soil_ph": 5.5, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "leaf_miner", "includes": ["drought_stress"]}
+    },
+    {
+      "id": "S04_phoma_wet_cold",
+      "description": "Phoma lesions with a very wet flowering season.",
+      "photos": [["phoma", 0.84, 4], ["healthy", 0.9, 2]],
+      "interview": {"q_tree_age": "15_30", "q_pruning": "last_year", "q_fertilizer": "yes", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "flowering"},
+      "context": {"rain_flowering_pct": 160, "rain_berry_pct": 120, "soil_ph": 5.4, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "phoma"}
+    },
+    {
+      "id": "S05_drought",
+      "description": "Healthy leaves, rain half of normal at flowering, no shade, harvest halved.",
+      "photos": [["healthy", 0.92, 6]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "last_year", "q_fertilizer": "yes", "q_shade": "none", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "half_or_less", "q_when_noticed": "flowering"},
+      "context": {"rain_flowering_pct": 50, "rain_berry_pct": 60, "soil_ph": 5.5, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "drought_stress"}
+    },
+    {
+      "id": "S06_excess_rain_flowering",
+      "description": "Healthy leaves, flowering rain 170% of normal, problem noticed at flowering.",
+      "photos": [["healthy", 0.9, 6]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "this_year", "q_fertilizer": "yes", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "flowering"},
+      "context": {"rain_flowering_pct": 170, "rain_berry_pct": 120, "soil_ph": 5.5, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "excess_rain"}
+    },
+    {
+      "id": "S07_soil_acidity",
+      "description": "Healthy leaves, normal rain, well-managed trees, soil pH 4.6.",
+      "photos": [["healthy", 0.9, 6]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "last_year", "q_fertilizer": "yes", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "harvest"},
+      "context": {"rain_flowering_pct": 100, "rain_berry_pct": 100, "soil_ph": 4.6, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "soil_acidity"}
+    },
+    {
+      "id": "S08_nutrient_deficiency",
+      "description": "Healthy leaves, no fertilizer, low N and K in the soil pack.",
+      "photos": [["healthy", 0.9, 6]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "last_year", "q_fertilizer": "no", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "harvest"},
+      "context": {"rain_flowering_pct": 100, "rain_berry_pct": 100, "soil_ph": 5.5, "soil_n": 0.6, "soil_k": 70, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "nutrient_deficiency"}
+    },
+    {
+      "id": "S09_old_unpruned",
+      "description": "Healthy leaves, trees over 30 years and never pruned.",
+      "photos": [["healthy", 0.9, 6]],
+      "interview": {"q_tree_age": "gt30", "q_pruning": "never", "q_fertilizer": "yes", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "harvest"},
+      "context": {"rain_flowering_pct": 100, "rain_berry_pct": 100, "soil_ph": 5.5, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "old_unpruned_trees"}
+    },
+    {
+      "id": "S10_berry_disease_suspected",
+      "description": "Many dark sunken spots on berries during berry growth in a wet season.",
+      "photos": [["healthy", 0.9, 6]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "last_year", "q_fertilizer": "yes", "q_shade": "some", "q_berry_spots": "many", "q_berry_holes": "none", "q_yield_change": "half_or_less", "q_when_noticed": "berry_growth"},
+      "context": {"rain_flowering_pct": 145, "rain_berry_pct": 150, "soil_ph": 5.5, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "berry_disease_suspected"}
+    },
+    {
+      "id": "S11_berry_borer_suspected",
+      "description": "Many small round holes in berries noticed at harvest.",
+      "photos": [["healthy", 0.9, 6]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "last_year", "q_fertilizer": "yes", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "many", "q_yield_change": "somewhat_less", "q_when_noticed": "harvest"},
+      "context": {"rain_flowering_pct": 100, "rain_berry_pct": 100, "soil_ph": 5.5, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "berry_borer_suspected"}
+    },
+    {
+      "id": "S12_rust_on_old_trees",
+      "description": "Rust clearly seen on old, never-pruned trees: rust first, old trees also listed.",
+      "photos": [["rust", 0.9, 4], ["healthy", 0.88, 2]],
+      "interview": {"q_tree_age": "gt30", "q_pruning": "never", "q_fertilizer": "yes", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "half_or_less", "q_when_noticed": "berry_growth"},
+      "context": {"rain_flowering_pct": 100, "rain_berry_pct": 100, "soil_ph": 5.5, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "leaf_rust", "includes": ["old_unpruned_trees"]}
+    },
+    {
+      "id": "S13_abstain_too_few_photos",
+      "description": "Only 2 photos pass the quality gate; the rest are blurry or not leaves.",
+      "photos": [["rust", 0.9, 2], ["other", 0.8, 3], ["rust", 0.5, 1]],
+      "interview": {"q_tree_age": "15_30", "q_pruning": "longer", "q_fertilizer": "no", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "berry_growth"},
+      "context": {"rain_flowering_pct": 95, "rain_berry_pct": 110, "soil_ph": 5.6, "soil_n": 1.4, "soil_k": 180, "data_through": "2026-08"},
+      "expect": {"status": "needs_human", "abstain_reasons": ["too_few_photos"]}
+    },
+    {
+      "id": "S14_abstain_too_few_known_features",
+      "description": "Good rust photos but plot outside the pack and almost every answer is 'don't know'.",
+      "photos": [["rust", 0.93, 5], ["healthy", 0.9, 1]],
+      "interview": {"q_pruning": "longer", "q_fertilizer": "unknown", "q_shade": "unknown"},
+      "context": {},
+      "expect": {"status": "needs_human", "abstain_reasons": ["too_few_known_features"]}
+    },
+    {
+      "id": "S15_abstain_nothing_stands_out",
+      "description": "Healthy leaves, normal rain, good soil, well-managed young trees: no cause stands out.",
+      "photos": [["healthy", 0.92, 6]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "this_year", "q_fertilizer": "yes", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "harvest"},
+      "context": {"rain_flowering_pct": 100, "rain_berry_pct": 100, "soil_ph": 5.6, "soil_n": 1.4, "soil_k": 180, "data_through": "2026-08"},
+      "expect": {"status": "needs_human", "abstain_reasons": ["low_top_probability"]}
+    },
+    {
+      "id": "S16_abstain_photo_interview_conflict",
+      "description": "Photos say rust (3 of 10 leaves, just over the seen rule), interview says old never-pruned unfed trees; the two are nearly tied.",
+      "photos": [["rust", 0.85, 3], ["healthy", 0.88, 7]],
+      "interview": {"q_tree_age": "gt30", "q_pruning": "never", "q_fertilizer": "no", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "harvest"},
+      "context": {"rain_flowering_pct": 100, "rain_berry_pct": 100, "soil_ph": 5.5, "soil_n": 1.3, "soil_k": 160, "data_through": "2026-08"},
+      "expect": {"status": "needs_human", "abstain_reasons": ["photo_interview_conflict"]}
+    },
+    {
+      "id": "S17_abstain_not_coffee",
+      "description": "All six photos are classified as 'other' (not a coffee leaf).",
+      "photos": [["other", 0.95, 6]],
+      "interview": {"q_tree_age": "15_30", "q_pruning": "longer", "q_fertilizer": "no", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "berry_growth"},
+      "context": {"rain_flowering_pct": 95, "rain_berry_pct": 110, "soil_ph": 5.6, "soil_n": 1.4, "soil_k": 180, "data_through": "2026-08"},
+      "expect": {"status": "needs_human", "abstain_reasons": ["too_few_photos"]}
+    },
+    {
+      "id": "S18_abstain_low_confidence_photos",
+      "description": "Six photos look like rust but none reaches the 0.70 acceptance threshold.",
+      "photos": [["rust", 0.55, 6]],
+      "interview": {"q_tree_age": "15_30", "q_pruning": "longer", "q_fertilizer": "no", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "berry_growth"},
+      "context": {"rain_flowering_pct": 95, "rain_berry_pct": 110, "soil_ph": 5.6, "soil_n": 1.4, "soil_k": 180, "data_through": "2026-08"},
+      "expect": {"status": "needs_human", "abstain_reasons": ["too_few_photos"]}
+    },
+    {
+      "id": "S19_single_rust_photo_not_seen",
+      "description": "Rust on only 1 of 6 leaves (below the 2-photo rule); nutrient evidence should win and rust must not be shown.",
+      "photos": [["rust", 0.9, 1], ["healthy", 0.9, 5]],
+      "interview": {"q_tree_age": "5_15", "q_pruning": "last_year", "q_fertilizer": "no", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "harvest"},
+      "context": {"rain_flowering_pct": 100, "rain_berry_pct": 100, "soil_ph": 5.5, "soil_n": 0.6, "soil_k": 70, "data_through": "2026-08"},
+      "expect": {"status": "ok", "top": "nutrient_deficiency", "excludes": ["leaf_rust"]}
+    },
+    {
+      "id": "S20_outside_pack_rust",
+      "description": "Plot outside the regional pack (no rain or soil), but clear rust photos and a full interview.",
+      "photos": [["rust", 0.92, 5], ["healthy", 0.9, 1]],
+      "interview": {"q_tree_age": "15_30", "q_pruning": "last_year", "q_fertilizer": "little", "q_shade": "some", "q_berry_spots": "none", "q_berry_holes": "none", "q_yield_change": "somewhat_less", "q_when_noticed": "berry_growth"},
+      "context": {},
+      "expect": {"status": "ok", "top": "leaf_rust"}
+    }
+  ]
+}

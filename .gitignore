@@ -1,0 +1,13 @@
+.gradle/
+build/
+.kotlin/
+local.properties
+.idea/
+*.iml
+.DS_Store
+# ML artefacts and raw data stay out of git
+ml/data/
+ml/runs/
+datapack/raw/
+*.tflite
+!app/**/assets/**/*.tflite
