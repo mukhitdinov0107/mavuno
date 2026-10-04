@@ -73,7 +73,7 @@ class TfliteLeafClassifier(context: Context) : LeafClassifier {
         val input = interpreter.getInputTensor(0)
         val output = interpreter.getOutputTensor(0)
         val size = meta.inputSize
-        val scaled = Bitmap.createScaledBitmap(centerSquare(bitmap), size, size, true)
+        val scaled = downscale(centerSquare(bitmap), size)
         val pixels = IntArray(size * size).also { scaled.getPixels(it, 0, size, 0, 0, size, size) }
 
         val (lo, hi) = meta.inputRange
@@ -116,6 +116,18 @@ class TfliteLeafClassifier(context: Context) : LeafClassifier {
         val exps = scaled.map { exp(it - max) }
         val sum = exps.sum()
         return DoubleArray(exps.size) { exps[it] / sum }
+    }
+
+    /**
+     * Halve until within 2× of the target, then one bilinear step. A single bilinear scale from a
+     * multi-megapixel photo samples only a few pixels and aliases; halving averages them, close to the
+     * antialiased resize used in training and evaluation (PIL). Without it, confidence on large photos
+     * drifted by up to 0.27 from the evaluated model (ClassifierParityTest).
+     */
+    private fun downscale(square: Bitmap, target: Int): Bitmap {
+        var b = square
+        while (b.width >= target * 2) b = Bitmap.createScaledBitmap(b, b.width / 2, b.height / 2, true)
+        return if (b.width == target) b else Bitmap.createScaledBitmap(b, target, target, true)
     }
 
     private fun centerSquare(b: Bitmap): Bitmap {

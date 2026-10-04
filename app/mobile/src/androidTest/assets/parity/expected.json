@@ -1,0 +1,110 @@
+[
+ {
+  "file": "00_bracol_rust.jpg",
+  "label": "rust",
+  "python_class": "rust",
+  "python_prob": 0.7437
+ },
+ {
+  "file": "01_bracol_rust.jpg",
+  "label": "rust",
+  "python_class": "rust",
+  "python_prob": 0.8818
+ },
+ {
+  "file": "02_bracol_phoma.jpg",
+  "label": "phoma",
+  "python_class": "phoma",
+  "python_prob": 0.9946
+ },
+ {
+  "file": "03_bracol_phoma.jpg",
+  "label": "phoma",
+  "python_class": "phoma",
+  "python_prob": 0.9901
+ },
+ {
+  "file": "04_bracol_phoma.jpg",
+  "label": "phoma",
+  "python_class": "phoma",
+  "python_prob": 0.9999
+ },
+ {
+  "file": "05_bracol_leaf_miner.jpg",
+  "label": "leaf_miner",
+  "python_class": "leaf_miner",
+  "python_prob": 0.69
+ },
+ {
+  "file": "06_jmuben_leaf_miner.jpg",
+  "label": "leaf_miner",
+  "python_class": "leaf_miner",
+  "python_prob": 1.0
+ },
+ {
+  "file": "07_jmuben_leaf_miner.jpg",
+  "label": "leaf_miner",
+  "python_class": "leaf_miner",
+  "python_prob": 0.9951
+ },
+ {
+  "file": "08_jmuben_leaf_miner.jpg",
+  "label": "leaf_miner",
+  "python_class": "leaf_miner",
+  "python_prob": 0.9999
+ },
+ {
+  "file": "09_jmuben_leaf_miner.jpg",
+  "label": "leaf_miner",
+  "python_class": "leaf_miner",
+  "python_prob": 0.9985
+ },
+ {
+  "file": "10_jmuben_leaf_miner.jpg",
+  "label": "leaf_miner",
+  "python_class": "leaf_miner",
+  "python_prob": 0.9992
+ },
+ {
+  "file": "11_jmuben_rust.jpg",
+  "label": "rust",
+  "python_class": "rust",
+  "python_prob": 1.0
+ },
+ {
+  "file": "12_plantdoc_other.jpg",
+  "label": "other",
+  "python_class": "other",
+  "python_prob": 1.0
+ },
+ {
+  "file": "13_plantdoc_other.jpg",
+  "label": "other",
+  "python_class": "other",
+  "python_prob": 1.0
+ },
+ {
+  "file": "14_plantdoc_other.jpg",
+  "label": "other",
+  "python_class": "other",
+  "python_prob": 0.9934
+ },
+ {
+  "file": "15_plantdoc_other.jpg",
+  "label": "other",
+  "python_class": "other",
+  "python_prob": 1.0
+ },
+ {
+  "file": "16_plantdoc_other.jpg",
+  "label": "other",
+  "python_class": "other",
+  "python_prob": 1.0
+ },
+ {
+  "file": "17_plantdoc_other.jpg",
+  "label": "other",
+  "python_class": "other",
+  "python_prob": 1.0
+ }
+]

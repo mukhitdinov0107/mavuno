@@ -182,5 +182,6 @@
   "result.also_check": "Also worth checking",
   "photos.leaves_count": "{n} of {total} leaves",
   "a11y.speak": "Play aloud",
-  "card.title": "What to do"
+  "card.title": "What to do",
+  "photos.pick": "Choose a photo from the phone"
 }

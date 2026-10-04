@@ -20,6 +20,7 @@ android {
         // 10.0.2.2 is the host machine from the Android emulator.
         buildConfigField("String", "BACKEND_URL", "\"${providers.gradleProperty("mavuno.backendUrl").getOrElse("http://10.0.2.2:8000")}\"")
         ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -78,8 +79,12 @@ dependencies {
     implementation("androidx.camera:camera-view:1.6.2")
 
     implementation("com.google.ai.edge.litert:litert:1.4.2")
+    implementation("androidx.exifinterface:exifinterface:1.4.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
 
     testImplementation(kotlin("test-junit"))
     testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test:runner:1.7.0")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation(kotlin("test-junit"))
 }

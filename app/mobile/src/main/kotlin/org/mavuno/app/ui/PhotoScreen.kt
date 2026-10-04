@@ -3,8 +3,10 @@ package org.mavuno.app.ui
 import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -61,6 +63,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
+import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -124,6 +127,38 @@ private fun CameraBlock(session: CheckSession, onDone: () -> Unit) {
         feedback?.let { lastFeedback = it; delay(2600); feedback = null }
     }
 
+    /** Quality gate, classifier and feedback for a new photo, whether from the camera or the phone's gallery. */
+    fun handle(bitmap: Bitmap) {
+        scope.launch {
+            val outcome = withContext(Dispatchers.Default) { processPhoto(bitmap, services.classifier, session.photoDir(context.filesDir)) }
+            busy = false
+            when (outcome) {
+                is Outcome.Rejected -> feedback = Feedback(outcome.quality.stringId!!, false)
+                is Outcome.Kept -> {
+                    val obs = outcome.observation
+                    if (obs == null && BuildConfig.DEBUG) {
+                        pendingDebugLabel = outcome.file to session.treeIndex
+                    } else {
+                        session.photos += CapturedPhoto(outcome.photoId, outcome.file, session.treeIndex, obs?.leafClass, obs?.prob)
+                        val accepted = obs != null && obs.leafClass != LeafClass.OTHER && obs.prob >= services.weights.config.photoAcceptProb
+                        feedback = if (obs == null || accepted) Feedback("photos.ok", true) else Feedback("photos.retake_no_leaf", false)
+                    }
+                }
+            }
+        }
+    }
+
+    // The system photo picker: no storage permission, works offline.
+    val picker = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+        if (uri != null) {
+            busy = true
+            scope.launch {
+                val bitmap = withContext(Dispatchers.IO) { decodeDownsampled(context, uri) }
+                if (bitmap == null) busy = false else handle(bitmap)
+            }
+        }
+    }
+
     Box(Modifier.fillMaxWidth().aspectRatio(1f).clip(RoundedCornerShape(32.dp)).background(Color.Black)) {
         AndroidView(
             factory = {
@@ -161,24 +196,7 @@ private fun CameraBlock(session: CheckSession, onDone: () -> Unit) {
             scope.launch { flash.snapTo(0.8f); flash.animateTo(0f, spring(stiffness = Spring.StiffnessLow)) }
             controller.takePicture(ContextCompat.getMainExecutor(context), object : ImageCapture.OnImageCapturedCallback() {
                 override fun onCaptureSuccess(image: ImageProxy) {
-                    val bitmap = image.toUprightBitmap()
-                    scope.launch {
-                        val outcome = withContext(Dispatchers.Default) { processPhoto(bitmap, services.classifier, session.photoDir(context.filesDir)) }
-                        busy = false
-                        when (outcome) {
-                            is Outcome.Rejected -> feedback = Feedback(outcome.quality.stringId!!, false)
-                            is Outcome.Kept -> {
-                                val obs = outcome.observation
-                                if (obs == null && BuildConfig.DEBUG) {
-                                    pendingDebugLabel = outcome.file to session.treeIndex
-                                } else {
-                                    session.photos += CapturedPhoto(outcome.photoId, outcome.file, session.treeIndex, obs?.leafClass, obs?.prob)
-                                    val accepted = obs != null && obs.leafClass != LeafClass.OTHER && obs.prob >= services.weights.config.photoAcceptProb
-                                    feedback = if (obs == null || accepted) Feedback("photos.ok", true) else Feedback("photos.retake_no_leaf", false)
-                                }
-                            }
-                        }
-                    }
+                    handle(image.toUprightBitmap())
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -188,6 +206,10 @@ private fun CameraBlock(session: CheckSession, onDone: () -> Unit) {
         }
         val enough = session.photos.size >= CheckSession.MIN_LEAVES && session.treesPhotographed >= CheckSession.MIN_TREES
         SideAction(Pic.Check, t("common.next"), enabled = enough, onClick = onDone)
+    }
+
+    LinkButton(t("photos.pick")) {
+        picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
 
     pendingDebugLabel?.let { (file, tree) ->
@@ -317,6 +339,19 @@ private fun processPhoto(bitmap: Bitmap, classifier: LeafClassifier, dir: File):
     file.outputStream().use { stored.compress(Bitmap.CompressFormat.JPEG, 85, it) }
     return Outcome.Kept(photoId, file, classifier.classify(bitmap))
 }
+
+/** Decodes a picked image at roughly camera size, respecting its EXIF rotation. */
+private fun decodeDownsampled(context: android.content.Context, uri: android.net.Uri): Bitmap? = runCatching {
+    val resolver = context.contentResolver
+    val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+    resolver.openInputStream(uri)?.use { BitmapFactory.decodeStream(it, null, bounds) }
+    var sample = 1
+    while (maxOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= 2048) sample *= 2
+    val raw = resolver.openInputStream(uri)?.use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = sample }) }
+        ?: return@runCatching null
+    val rotation = resolver.openInputStream(uri)?.use { ExifInterface(it).rotationDegrees } ?: 0
+    if (rotation == 0) raw else Bitmap.createBitmap(raw, 0, 0, raw.width, raw.height, Matrix().apply { postRotate(rotation.toFloat()) }, true)
+}.getOrNull()
 
 private fun ImageProxy.toUprightBitmap(): Bitmap {
     val raw = toBitmap()
