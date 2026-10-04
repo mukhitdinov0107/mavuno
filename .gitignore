@@ -12,6 +12,8 @@ datapack/raw/
 *.tflite
 # The shipped leaf model is small (~1 MB) and part of the app.
 !content/model/*.tflite
+!web/content/model/*.tflite
 ml/.venv/
 __pycache__/
 ml/*.log
+submission/
