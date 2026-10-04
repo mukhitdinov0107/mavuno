@@ -31,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -96,8 +97,17 @@ private fun CameraBlock(session: CheckSession) {
     /** Debug builds without a model let the tester label a photo by hand, so the flow can be exercised end to end. */
     var pendingDebugLabel by remember { mutableStateOf<Pair<File, Int>?>(null) }
 
-    Box(Modifier.fillMaxWidth().aspectRatio(1f)) {
-        AndroidView(factory = { PreviewView(it).apply { this.controller = controller } }, modifier = Modifier.fillMaxSize())
+    // TextureView-backed preview so it clips to its box inside a scrolling Compose column.
+    Box(Modifier.fillMaxWidth().aspectRatio(1f).clipToBounds()) {
+        AndroidView(
+            factory = {
+                PreviewView(it).apply {
+                    implementationMode = PreviewView.ImplementationMode.COMPATIBLE
+                    this.controller = controller
+                }
+            },
+            modifier = Modifier.fillMaxSize(),
+        )
         FramingGuide()
     }
 

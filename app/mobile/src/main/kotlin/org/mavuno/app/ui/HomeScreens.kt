@@ -26,6 +26,7 @@ import org.mavuno.app.services
 import org.mavuno.fusion.Cause
 import java.text.DateFormat
 import java.util.Date
+import java.util.Locale
 
 @Composable
 fun HomeScreen(onCheck: () -> Unit, onHistory: () -> Unit, onSettings: () -> Unit) {
@@ -62,7 +63,7 @@ private fun HistoryRow(r: RecordEntity, onClick: () -> Unit) {
         modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
     ) {
         Column(Modifier.padding(14.dp)) {
-            Text(DateFormat.getDateInstance(DateFormat.MEDIUM).format(Date(r.createdAt)), style = MaterialTheme.typography.bodyMedium)
+            Text(DateFormat.getDateInstance(DateFormat.MEDIUM, Locale(LocalLanguage.current)).format(Date(r.createdAt)), style = MaterialTheme.typography.bodyMedium)
             Text(title, style = MaterialTheme.typography.titleMedium)
             Text(t("history.state.${r.syncState}"), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.secondary)
             if (r.reply != null) Text("✉ " + t("history.reply"), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.primary)
@@ -77,7 +78,7 @@ fun RecordScreen(recordId: String) {
     val r = entity ?: return
     val record = remember(r.json) { FieldRecord.json.decodeFromString(FieldRecord.serializer(), r.json) }
     Screen {
-        Text(DateFormat.getDateTimeInstance().format(Date(r.createdAt)), style = MaterialTheme.typography.bodyLarge)
+        Text(DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT, Locale(LocalLanguage.current)).format(Date(r.createdAt)), style = MaterialTheme.typography.bodyLarge)
         if (record.result.status == "needs_human") {
             SpokenPrompt("abstain.message", autoPlay = false)
             record.result.abstainReasons.forEach { Text("• " + t("abstain.$it"), style = MaterialTheme.typography.bodyLarge) }

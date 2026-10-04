@@ -3,14 +3,11 @@ package org.mavuno.app.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -28,7 +25,6 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -103,9 +99,8 @@ fun SpokenPrompt(id: String, vararg params: Pair<String, Any>, autoPlay: Boolean
         LaunchedEffect(language, id) { audio.play(language, id) }
         DisposableEffect(language, id) { onDispose { audio.stop() } }
     }
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Text(t(id, *params), style = MaterialTheme.typography.headlineMedium, modifier = Modifier.weight(1f))
-        Spacer(Modifier.width(8.dp))
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(t(id, *params), style = MaterialTheme.typography.headlineMedium)
         OutlinedButton(onClick = { audio.play(language, id) }, enabled = hasClip) {
             Text("▶ " + t("common.replay"), style = MaterialTheme.typography.bodyMedium)
         }
