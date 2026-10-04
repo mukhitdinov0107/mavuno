@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A coffee leaf with a midrib, inside the adaptive-icon safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#FFFDF8"
+        android:pathData="M54,26 C70,34 76,52 70,68 C66,78 58,83 54,84 C50,83 42,78 38,68 C32,52 38,34 54,26 Z" />
+    <path android:strokeColor="#2F5D3A" android:strokeWidth="2.5" android:strokeLineCap="round"
+        android:pathData="M54,32 L54,82 M54,46 L64,40 M54,46 L44,40 M54,58 L66,51 M54,58 L42,51 M54,70 L64,64 M54,70 L44,64" />
+</vector>

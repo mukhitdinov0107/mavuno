@@ -15,5 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "mavuno"
 
-// Pure-Kotlin modules. The Android module (:mobile) is added once the Android SDK is set up.
-include(":fusion", ":contentpack")
+// :fusion and :contentpack are pure Kotlin; :mobile is the Android app.
+include(":fusion", ":contentpack", ":mobile")

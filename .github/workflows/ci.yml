@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  jvm:
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -16,9 +16,14 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: "platforms;android-37.0 build-tools;36.0.0 platform-tools"
       - uses: gradle/actions/setup-gradle@v4
-      - name: Fusion and content-pack tests
+      - name: Fusion, content-pack and UI string tests
         run: ./gradlew test
-      - name: APK size budget
+      - name: Build release APK
+        run: ./gradlew :mobile:assembleRelease
+      - name: APK size budget (40 MB)
         working-directory: .
-        run: scripts/check_apk_size.sh
+        run: scripts/check_apk_size.sh app/mobile/build/outputs/apk/release/mobile-release.apk
