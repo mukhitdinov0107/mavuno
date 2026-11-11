@@ -1,7 +1,5 @@
 # Mavuno: offline yield-drop triage for smallholder coffee farmers
 
-**World Bank × Hack-Nation "Small AI for Development" · Track B: Agriculture**
-
 *Mavuno* is Swahili for "harvest". Noor's coffee yields have slipped and she doesn't know why; the extension officer visits twice a year. Mavuno is an Android app that works with **no internet**. She photographs a few coffee leaves and answers 8 picture questions. The app tells her the likely cause, why it thinks so, and safe first steps. When it isn't sure, it says so and sends her to the extension officer. Each check becomes a report that waits on the phone and goes to her cooperative once there is signal, with her consent.
 
 - **Android app (APK, 13 MB):** [Releases](https://github.com/mukhitdinov0107/mavuno/releases/latest)
